@@ -1,0 +1,18 @@
+#
+# Search paths (include these paths in your .cshrc file if they're not there)
+#
+
+# search path for executables
+set path = (~/bin/ /bin /local/bin /local/bin/X11 /usr/ucb /usr/bin .)
+
+# search path for dynamically-linked libraries
+setenv LD_LIBRARY_PATH /local/lib
+
+#
+# other settings (not relevant for assignment)
+#
+
+# eliminate core dumps
+limit coredumpsize 0k
+
+umask 077

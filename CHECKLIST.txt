@@ -1,0 +1,60 @@
+-------------------------------------
+Assignment 1 Checklist/Grading sheet
+-------------------------------------
+
+Name: Chuang-Yu Chen
+Student ID: g3chencm 999054099
+
+--------------------------------------------------------------------------------
+A. PLEASE ANSWER THE FOLLOWING QUESTIONS
+
+  
+1. I verify that I completed this assignment according to the 
+   Academic Honesty policy stated in 
+   http://www.cs.toronto.edu/~kyros/courses/320/policy.html
+
+   _X_Yes   ___No
+
+
+2. I collaborated on this assignment with another student 
+   (see http://www.cs.toronto.edu/~kyros/courses/320/policy.html for
+    policy on assignments done in collaboration)
+
+   ___Yes   _X_No
+
+   If you checked yes, please supply the following
+
+       Student name: 
+       Portion(s) of assignment completed by that student (see checklist below)
+
+
+--------------------------------------------------------------------------------
+B. PLACE AN (X) IN FRONT OF PORTIONS OF THE ASSIGNMENT THAT YOU COMPLETED IN FULL.
+   
+   If a portion of the assignment was not completed fully, please provide 
+   additional information so that we can determine whether or not you are eligible
+   for partial credit. THE MORE INFORMATION YOU SUPPLY (EG. FILE WHICH CONTAINS
+   PARTIAL CODE, SUGGESTIONS ON WHERE AND WHAT TO LOOK FOR IN YOUR PARTIAL 
+   IMPLEMENTATION, DETAILED COMMENTS IN YOUR CODE, ETC) THE MORE LIKELY IT IS 
+   WE WILL BE ABLE TO MAKE AN ACCURATE ASSESSMENT
+
+   
+_X_   (10 points) Part A.1 
+                  
+_X_   (40 points) Part A.2   compute() method
+
+_X_   (10 points) Part A.2   compute_composite() method
+
+_X_   ( 5 points) Part A.3   Save Menu functionality
+                  
+_X_   ( 5 points) Part A.3   Right drop-down menu functionality
+                  
+_X_   (10 points) Part B.1  
+
+_X_   (10 points) Part B.2   Question 1
+
+_X_   (10 points) Part B.2   Question 2
+
+_X_   (10 points) Part B.2   Question 3
+
+-------------------------------------------------------------------------------- 

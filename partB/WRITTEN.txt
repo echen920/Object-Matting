@@ -1,0 +1,143 @@
+------------------------------------------------------------------
+Please write your answer below each question
+------------------------------------------------------------------
+
+------------------------------------------------------------------
+Part B.1 Questions (you must answer questions 1-4 to
+                    get any credit for Part B.1!!)
+------------------------------------------------------------------
+
+ 1. What camera model did you use to capture these photos
+
+	A: Canon T3i
+
+ 2. What camera settings did you use (if any)?
+
+ 3. What was the order in which the photos were captured?
+    (eg. "comp1.jpg,comp2.jpg,...")
+
+	A: back1.jpg -> comp1.jpg -> comp2.jpg -> back2.jpg
+
+ 4. In 2-3 sentences, describe your image acquistion procedure
+    (eg. "I put the camera on a table, then put the object in
+     front of a piece of cloth, and took a picture; then ...")
+
+	A: I set up the camera on a table and take a picture of the back1. Then I put the object
+	in front of back1 and I capture comp1. After comp1 is taken, object stays still and
+	the background is then changed to back2. Finally I take comp2 with back2 and remove
+	the object and take a picture of back2. 
+
+ 5. If you consider your experiment unsuccessful, explain why
+    it was not possible for you to capture a good set of photos for
+    the matting algorithm
+
+	A: The result turned out pretty well. I assume the reason to be that of the strong color from the 2 different
+	background.
+
+------------------------------------------------------------------
+Part B.2 Questions: Note that you need to answer two of the three
+                    questions to get full credit for Part B.2. If
+                    you answer all three, you will receive EXTRA
+                    credit.
+------------------------------------------------------------------
+
+First, run the algorithm on the following input:
+   Background 1: test_images/small/flowers-backA.jpg
+   Background 2: test_images/small/flowers-backB.jpg
+   Composite  1: test_images/small/flowers-compA.jpg
+   Composite  2: test_images/small/flowers-compB.jpg
+
+Then, run the algorithm with the following input:
+   Background 1: test_images/small/flowers-backC.jpg
+   Background 2: test_images/small/flowers-backD.jpg
+   Composite  1: test_images/small/flowers-compC.jpg
+   Composite  2: test_images/small/flowers-compD.jpg
+
+You will notice that in the second run both the computed
+Alpha Matte and the Object image has many "artifacts".
+
+------------------------------------------------------------------
+
+Question 1 (10 points)
+
+The Object image computed in the second run contains a lot of pixels
+that should really be part of the background, but
+aren't. Equivalently, even though the Alpha Matte should be zero
+at those pixels, the algorithm assigned non-zero values.
+
+Take, for example, pixel (I,J) = (50,375) with intensity
+(243,243,243). Its alpha value is (243/255), i.e., close to 1, even
+though it should really be 0. To take a better look at individual
+pixels in that region, enter the following values in the view control
+boxes on both panels (Zoom: 10; Center I: 50; Center J: 375)
+
+Explain why this pixel has a non-zero alpha. Be as concrete as
+possible.
+
+A: In tuition, if you look at the two backgrounds, you will find that they are very similar except for the mirror part.
+During the algorithm, the similarity between the backgrounds will actually be considered as part of the object, which is
+why the flowers(objects) have an alpha value close to 1. That is to say, if you take a look at the mirror part in alpha,
+you will find out that this part has an alpha value close to 1 because it is very different when comparing the composite
+and the background. On the other hand, in the point given in the question, the alpha value is very close to 1 because 
+the background is almost identical to the composite image, which proves our point earlier. Finally, the result of 
+this alpha matte would create some pixels that are meant to be 0 to be 1, and therefore produces many "artifacts"
+in new composite image. 
+
+------------------------------------------------------------------
+    
+Question 2 (10 points)
+
+Conversely, there are many pixels that should be fully opaque
+(ie. part of the foreground), but aren't. Take, for example, pixel
+(I,J) = (332,164). Even though that pixel is on a flower petal, which
+is on the foreground, the intensity of its Alpha component is
+(200,200,200), meaning that its alpha value (=200/255) is less than 1.
+The effect is that a portion of the flower is taken to be partially
+transparent.
+
+Explain why this pixel has non-unit alpha. Be as concrete as
+possible.
+
+Hint: examine the linear system of equations that must be solved
+      for that pixel (and the associated matrix).
+
+A: In the linear system of equations, notice that the resulted alpha value at a certain pixel will be higher if the 
+background and the composite images are more similar and lower if the two are less similar. In the question, the 
+alpha value of the pixel is 200/255, which means that at this pixel, the background and the composite share a high
+similarity but they are not exactly identical. In this case I would assume that the lighting in the reflection to
+the object in the images are slightly different because of the change in background. So the RBG in the pixel between 
+the composite and background is slightly different as well. Thus the alpha value returned at this pixel will 
+not be a unit factor, creating partial transparency to the alpha matte.
+ 
+------------------------------------------------------------------
+    
+Question 3 (10 points)
+
+Now let's go back to the first run above (ie. the Alpha Matte and
+Object computed from the *A.jpg and *B.jpg images).
+
+Looking closely at the computed Alpha Matte, you will notice that the
+alpha values are either zero or near zero on the right size of the
+vase. For example, pixel (I,J)=(515,819) has intensity (0,0,0). Use
+Zoom=1; (I,J) = (515,819) for better viewing...
+
+On the other hand, pixels on the *left* side of the vase have non-zero
+(albeit small) alpha values. For example, pixel (I,J)=(50,816) has
+alpha equal to 0.1=25/255, suggesting that there is there is an
+"object" in front of the background in that part of the photo, with a
+transparency of about 90%. The effect may be slight, but it is
+noticeable (Use Zoom-1; (I,J)=(50,816) for better viewing).
+
+Why does that pixel (and many others on the left side of the vase)
+have non-zero alpha? Be as concrete as possible.
+
+
+A: If you look closely to background1 and background2 you will notice that on the left side of the image
+in background1 there are some wrinkle to the fabric, which is not found in background2. Therefore, the two
+backgrounds would have a slightly similar RGB values in the pixels in the shadow region from the wrinkle. 
+Thus during the algorithm, it considers that part of the region to be part of the object due to the similarity
+in both backgrounds. Although they have little similarity, they are still high in contrast in terms of
+their colors. Thus the alpha value calculated will be very low and therefore barely visible in the result.
+------------------------------------------------------------------
+    
+
